@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Principal));
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.tbcReporte = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.lblLoading = new System.Windows.Forms.Label();
             this.pbLoading = new System.Windows.Forms.PictureBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblLoading = new System.Windows.Forms.Label();
             this.gridGrupos = new DevExpress.XtraGrid.GridControl();
             this.filtroGruposBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gvGrupos = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -108,7 +109,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.lblLoading);
             this.tabPage1.Controls.Add(this.pbLoading);
             this.tabPage1.Controls.Add(this.btnConsultar);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -121,27 +121,15 @@
             this.tabPage1.Text = "Filtros";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // lblLoading
-            // 
-            this.lblLoading.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblLoading.BackColor = System.Drawing.Color.Black;
-            this.lblLoading.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoading.ForeColor = System.Drawing.Color.White;
-            this.lblLoading.Location = new System.Drawing.Point(94, 424);
-            this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(588, 34);
-            this.lblLoading.TabIndex = 3;
-            this.lblLoading.Text = "Cargando datos...";
-            this.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLoading.Visible = false;
-            // 
             // pbLoading
             // 
-            this.pbLoading.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLoading.Image = global::ReporteExistenciaPrecio.Properties.Resources.loading;
-            this.pbLoading.Location = new System.Drawing.Point(94, -18);
+            this.pbLoading.Location = new System.Drawing.Point(152, 6);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(588, 448);
+            this.pbLoading.Size = new System.Drawing.Size(473, 334);
             this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLoading.TabIndex = 2;
             this.pbLoading.TabStop = false;
@@ -163,6 +151,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lblLoading);
             this.groupBox2.Controls.Add(this.gridGrupos);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(8, 112);
@@ -171,6 +160,21 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Grupos de Artículos";
+            // 
+            // lblLoading
+            // 
+            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoading.BackColor = System.Drawing.Color.Black;
+            this.lblLoading.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoading.ForeColor = System.Drawing.Color.White;
+            this.lblLoading.Location = new System.Drawing.Point(144, 231);
+            this.lblLoading.Name = "lblLoading";
+            this.lblLoading.Size = new System.Drawing.Size(473, 34);
+            this.lblLoading.TabIndex = 3;
+            this.lblLoading.Text = "Cargando datos...";
+            this.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLoading.Visible = false;
             // 
             // gridGrupos
             // 
@@ -306,6 +310,9 @@
             // 
             // colSeleccion
             // 
+            this.colSeleccion.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSeleccion.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colSeleccion.Caption = "-";
             this.colSeleccion.FieldName = "Seleccion";
             this.colSeleccion.Name = "colSeleccion";
             this.colSeleccion.Visible = true;
@@ -315,6 +322,7 @@
             // 
             this.colGrupo.FieldName = "Grupo";
             this.colGrupo.Name = "colGrupo";
+            this.colGrupo.OptionsColumn.AllowEdit = false;
             this.colGrupo.Visible = true;
             this.colGrupo.VisibleIndex = 1;
             // 
@@ -522,6 +530,7 @@
             this.colPrecioLista});
             this.gvResultados.GridControl = this.gridResultados;
             this.gvResultados.Name = "gvResultados";
+            this.gvResultados.OptionsBehavior.Editable = false;
             this.gvResultados.OptionsCustomization.AllowGroup = false;
             this.gvResultados.OptionsView.EnableAppearanceEvenRow = true;
             this.gvResultados.OptionsView.EnableAppearanceOddRow = true;
@@ -583,6 +592,7 @@
             this.Controls.Add(this.tbcReporte);
             this.Controls.Add(this.pnlTitulo);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_Principal";
             this.Text = "Reporte de precios y existencias";

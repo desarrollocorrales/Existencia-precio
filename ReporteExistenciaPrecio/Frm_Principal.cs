@@ -31,39 +31,36 @@ namespace ReporteExistenciaPrecio
             PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
 
             PageHeaderArea headerArea;
-            PageHeaderFooter header;
 
             headerArea = new PageHeaderArea();
             headerArea.Content.Add("Reporte de precios y existencias al dia " + DateTime.Today.ToShortDateString());
             headerArea.LineAlignment = BrickAlignment.Center;
 
             PageFooterArea footerArea;
-            PageHeaderFooter footer;
+            PageHeaderFooter headerfooter;
 
             footerArea = new PageFooterArea();
             footerArea.Content.Add("[Page #]");
             footerArea.LineAlignment = BrickAlignment.Far;
 
-            footer = new PageHeaderFooter(headerArea, footerArea);
-            link.PageHeaderFooter = footer;
+            headerfooter = new PageHeaderFooter(headerArea, footerArea);
+            link.PageHeaderFooter = headerfooter;
 
             link.Component = gridResultados;
             link.CreateDocument();
             link.ShowPreviewDialog();
-            //gridResultados.ShowPrintPreview();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 Consultar();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
-            //MessageBox.Show("Consultar");
         }
 
         private void Frm_Principal_Load(object sender, EventArgs e)
@@ -79,17 +76,13 @@ namespace ReporteExistenciaPrecio
         }
 
         private void Consultar()
-        {
-            
+        {            
             AlmacenID = Convert.ToString(cbAlmacenes.SelectedValue);
             GruposIDs = getGruposSeleccionados();
 
-            //Firebird_Controller fbController = new Firebird_Controller();
-            //gridResultados.DataSource = fbController.getPreciosExistencias(AlmacenID, GruposIDs);
-            //gvResultados.BestFitColumns();
-            //tbcReporte.SelectedIndex = 1;
             pbLoading.Visible = true;
             lblLoading.Visible = true;
+            btnConsultar.Enabled = false;
             hiloConsulta.RunWorkerAsync();
         }
 
@@ -124,6 +117,7 @@ namespace ReporteExistenciaPrecio
 
             pbLoading.Visible = false;
             lblLoading.Visible = false;
+            btnConsultar.Enabled = true;
         }
     }
 }

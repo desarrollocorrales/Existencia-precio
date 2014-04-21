@@ -55,7 +55,7 @@ namespace ReporteExistenciaPrecio
                     StringBuilder Mensaje = new StringBuilder();
                     Mensaje.AppendLine("No se encontró el archivo de configuración.");
                     Mensaje.AppendLine("Por favor, ejecute el modulo AdminACC, genere el archivo \"microsip.set\" y peguelo en la ruta:");
-                    Mensaje.AppendLine(Environment.CurrentDirectory);
+                    Mensaje.AppendLine(Environment.CurrentDirectory+"\\conf\\");
                     MessageBox.Show(Mensaje.ToString());
                     Application.Exit();
                     return;
