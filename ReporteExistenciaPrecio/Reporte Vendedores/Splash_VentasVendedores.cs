@@ -10,12 +10,13 @@ using AccSettings;
 using Sofbr;
 using ReporteExistenciaPrecio.Controladores;
 using ReporteExistenciaPrecio.Modelos;
+using ReporteExistenciaPrecio.Modelos.Reporte_Vendedores;
 
-namespace ReporteExistenciaPrecio
+namespace ReporteExistenciaPrecio.Reporte_Vendedores
 {
-    public partial class Splash : Form
+    public partial class Splash_VentasVendedores : Form
     {
-        public Splash()
+        public Splash_VentasVendedores()
         {
             InitializeComponent();
         }
@@ -27,11 +28,10 @@ namespace ReporteExistenciaPrecio
             if (CargarConfiguraciones() == true)
             {
                 this.Hide();
-                Frm_Principal frmPrincipal = new Frm_Principal();
-                frmPrincipal.lstAlmacenes = getAlmacenes();
-                frmPrincipal.lstGrupos = getGrupos();
-                frmPrincipal.WindowState = FormWindowState.Maximized;
-                frmPrincipal.ShowDialog();
+                Frm_VentasVendedor frmVentasVendedores = new Frm_VentasVendedor();
+                frmVentasVendedores.WindowState = FormWindowState.Maximized;
+                frmVentasVendedores.lstVendedores = getVendedores();
+                frmVentasVendedores.ShowDialog();
                 this.Close();
             }
             else
@@ -88,33 +88,12 @@ namespace ReporteExistenciaPrecio
             }
         }
 
-        private List<Almacen> getAlmacenes()
+        public List<VendedoresGrid> getVendedores()
         {
-            lblAccion.Text = "Obteniendo almacenes...";
-            Application.DoEvents();
-
-            List<Almacen> lstAlmacenes = new List<Almacen>();
+            List<VendedoresGrid> lstVendedores = new List<VendedoresGrid>();
             Firebird_Controller fbController = new Firebird_Controller();
-
-            lstAlmacenes = fbController.getAlmacenes();
-            return lstAlmacenes;
-        }
-
-        private List<FiltroGrupos> getGrupos()
-        {
-            lblAccion.Text = "Obteniendo grupos de lineas...";
-            Application.DoEvents();
-
-            List<FiltroGrupos> lstGrupos= new List<FiltroGrupos>();
-            Firebird_Controller fbController = new Firebird_Controller();
-
-            lstGrupos = fbController.getGrupos();
-            return lstGrupos;
-        }
-
-        private void Splash_Load(object sender, EventArgs e)
-        {
-
+            lstVendedores = fbController.getVendedores();
+            return lstVendedores;
         }
     }
 }

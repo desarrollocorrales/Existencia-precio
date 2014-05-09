@@ -82,7 +82,7 @@
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(784, 53);
+            this.pnlTitulo.Size = new System.Drawing.Size(784, 55);
             this.pnlTitulo.TabIndex = 1;
             // 
             // lblTitulo
@@ -101,10 +101,10 @@
             this.tbcReporte.Controls.Add(this.tabPage1);
             this.tbcReporte.Controls.Add(this.tabPage2);
             this.tbcReporte.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcReporte.Location = new System.Drawing.Point(0, 53);
+            this.tbcReporte.Location = new System.Drawing.Point(0, 55);
             this.tbcReporte.Name = "tbcReporte";
             this.tbcReporte.SelectedIndex = 0;
-            this.tbcReporte.Size = new System.Drawing.Size(784, 509);
+            this.tbcReporte.Size = new System.Drawing.Size(784, 507);
             this.tbcReporte.TabIndex = 2;
             // 
             // tabPage1
@@ -116,20 +116,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 480);
+            this.tabPage1.Size = new System.Drawing.Size(776, 478);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filtros";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // pbLoading
             // 
-            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLoading.Image = global::ReporteExistenciaPrecio.Properties.Resources.loading;
             this.pbLoading.Location = new System.Drawing.Point(152, 6);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(473, 334);
+            this.pbLoading.Size = new System.Drawing.Size(473, 332);
             this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLoading.TabIndex = 2;
             this.pbLoading.TabStop = false;
@@ -138,7 +138,7 @@
             // btnConsultar
             // 
             this.btnConsultar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConsultar.Location = new System.Drawing.Point(693, 442);
+            this.btnConsultar.Location = new System.Drawing.Point(693, 440);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 30);
             this.btnConsultar.TabIndex = 2;
@@ -148,27 +148,27 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.lblLoading);
             this.groupBox2.Controls.Add(this.gridGrupos);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(8, 112);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(760, 324);
+            this.groupBox2.Size = new System.Drawing.Size(760, 322);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Grupos de Artículos";
             // 
             // lblLoading
             // 
-            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLoading.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLoading.BackColor = System.Drawing.Color.Black;
             this.lblLoading.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoading.ForeColor = System.Drawing.Color.White;
-            this.lblLoading.Location = new System.Drawing.Point(144, 231);
+            this.lblLoading.Location = new System.Drawing.Point(144, 229);
             this.lblLoading.Name = "lblLoading";
             this.lblLoading.Size = new System.Drawing.Size(473, 34);
             this.lblLoading.TabIndex = 3;
@@ -178,14 +178,14 @@
             // 
             // gridGrupos
             // 
-            this.gridGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridGrupos.DataSource = this.filtroGruposBindingSource;
             this.gridGrupos.Location = new System.Drawing.Point(131, 38);
             this.gridGrupos.MainView = this.gvGrupos;
             this.gridGrupos.Name = "gridGrupos";
-            this.gridGrupos.Size = new System.Drawing.Size(502, 280);
+            this.gridGrupos.Size = new System.Drawing.Size(502, 278);
             this.gridGrupos.TabIndex = 1;
             this.gridGrupos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvGrupos});
@@ -337,8 +337,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cbAlmacenes);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
@@ -350,8 +350,8 @@
             // 
             // cbAlmacenes
             // 
-            this.cbAlmacenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAlmacenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbAlmacenes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlmacenes.FormattingEnabled = true;
             this.cbAlmacenes.Location = new System.Drawing.Point(131, 44);
@@ -393,9 +393,9 @@
             // 
             // pnlResultados
             // 
-            this.pnlResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlResultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlResultados.Controls.Add(this.gridResultados);
             this.pnlResultados.Location = new System.Drawing.Point(8, 6);
             this.pnlResultados.Name = "pnlResultados";

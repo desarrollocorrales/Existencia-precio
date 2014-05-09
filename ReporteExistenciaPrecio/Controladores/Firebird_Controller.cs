@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using FirebirdSql.Data.FirebirdClient;
 using ReporteExistenciaPrecio.Modelos;
+using ReporteExistenciaPrecio.Modelos.Reporte_Vendedores;
 using System.IO;
+using System.Data;
 
 namespace ReporteExistenciaPrecio.Controladores
 {
@@ -44,10 +46,10 @@ namespace ReporteExistenciaPrecio.Controladores
             FbComm.CommandText = "SELECT ALMACEN_ID, NOMBRE FROM ALMACENES";
             FbAdapter.SelectCommand = FbComm;
 
-            System.Data.DataTable dtConsulta = new System.Data.DataTable();
+            DataTable dtConsulta = new DataTable();
             FbAdapter.Fill(dtConsulta);
 
-            foreach (System.Data.DataRow fila in dtConsulta.Rows)
+            foreach (DataRow fila in dtConsulta.Rows)
             {
                 Almacen almacen = new Almacen();
                 almacen.IdAlmacen = Convert.ToInt32(fila["ALMACEN_ID"]);
@@ -68,10 +70,10 @@ namespace ReporteExistenciaPrecio.Controladores
             FbComm.CommandText = "SELECT GRUPO_LINEA_ID, NOMBRE FROM GRUPOS_LINEAS";
             FbAdapter.SelectCommand = FbComm;
 
-            System.Data.DataTable dtConsulta = new System.Data.DataTable();
+            DataTable dtConsulta = new DataTable();
             FbAdapter.Fill(dtConsulta);
 
-            foreach (System.Data.DataRow fila in dtConsulta.Rows)
+            foreach (DataRow fila in dtConsulta.Rows)
             {
                 FiltroGrupos Grupo = new FiltroGrupos();
                 Grupo.IdGrupo = Convert.ToInt32(fila["GRUPO_LINEA_ID"]);
@@ -97,10 +99,10 @@ namespace ReporteExistenciaPrecio.Controladores
             FbComm.CommandText = FbComm.CommandText.Replace("|GRUPOS|", GruposIDs);
             FbAdapter.SelectCommand = FbComm;
 
-            System.Data.DataTable dtConsulta = new System.Data.DataTable();
+            DataTable dtConsulta = new DataTable();
             FbAdapter.Fill(dtConsulta);
 
-            foreach (System.Data.DataRow fila in dtConsulta.Rows)
+            foreach (DataRow fila in dtConsulta.Rows)
             {
                 Reporte Report = new Reporte();
                 Report.Articulo = Convert.ToString(fila["ARTICULO"]);
@@ -108,6 +110,66 @@ namespace ReporteExistenciaPrecio.Controladores
                 Report.PrecioFilial = fila["FILIAL"] == DBNull.Value ? 0 : Convert.ToDecimal(fila["FILIAL"]);
                 Report.PrecioMayoreo = fila["MAYOREO"] == DBNull.Value ? 0 : Convert.ToDecimal(fila["MAYOREO"]);
                 Report.PrecioLista = fila["LISTA"] == DBNull.Value ? 0 : Convert.ToDecimal(fila["LISTA"]);
+                dsReporte.Add(Report);
+            }
+
+            FbConn.Close();
+
+            return dsReporte;
+        }
+
+        public List<VendedoresGrid> getVendedores()
+        {
+            List<VendedoresGrid> lstVendedores = new List<VendedoresGrid>();
+
+            FbConn.Open();
+            FbComm.Connection = FbConn;
+            FbComm.CommandText = "SELECT VENDEDOR_ID, NOMBRE FROM VENDEDORES ORDER BY NOMBRE";
+            FbAdapter.SelectCommand = FbComm;
+
+            DataTable dtConsulta = new DataTable();
+            FbAdapter.Fill(dtConsulta);
+
+            foreach (DataRow fila in dtConsulta.Rows)
+            {
+                VendedoresGrid Vendedor = new VendedoresGrid();
+                Vendedor.Seleccionado = false;
+                Vendedor.ID_Vendedor = Convert.ToInt32(fila["VENDEDOR_ID"]);
+                Vendedor.Vendedor = Convert.ToString(fila["NOMBRE"]);
+                lstVendedores.Add(Vendedor);
+            }
+
+            FbConn.Close();
+
+            return lstVendedores;
+        }
+
+        public List<ReporteVendedores> getReporteVendedores(DateTime FechaInicio, DateTime FechaFin, string VendedoresIDs)
+        {
+            List<ReporteVendedores> dsReporte = new List<ReporteVendedores>();
+
+            FbConn.Open();
+            FbComm.Connection = FbConn;
+
+            StreamReader sr = new StreamReader(".\\conf\\ConsultaVendedores.sql");
+            FbComm.CommandText = sr.ReadToEnd();
+            sr.Close();
+            FbComm.CommandText = FbComm.CommandText.Replace("|FECHA_INICIO|", FechaInicio.ToString("yyyy-MM-dd"));
+            FbComm.CommandText = FbComm.CommandText.Replace("|FECHA_FIN|", FechaFin.ToString("yyyy-MM-dd"));
+            FbComm.CommandText = FbComm.CommandText.Replace("|VENDEDORES_IDS|", VendedoresIDs);
+            FbAdapter.SelectCommand = FbComm;
+
+            DataTable dtConsulta = new DataTable();
+            FbAdapter.Fill(dtConsulta);
+
+            foreach (DataRow fila in dtConsulta.Rows)
+            {
+                ReporteVendedores Report = new ReporteVendedores();
+                Report.Vendedor = Convert.ToString(fila["VENDEDOR"]);
+                Report.Articulo = Convert.ToString(fila["ARTICULO"]);
+                Report.UnidadesVendidas = Convert.ToDecimal(fila["UNIDADES"]);
+                Report.VentaTotal = Convert.ToDecimal(fila["VENTA_TOTAL"]);
+                Report.UltimoCostoUnitario = Convert.ToDecimal(fila["ULTIMO_COSTO"]);
                 dsReporte.Add(Report);
             }
 
