@@ -169,7 +169,7 @@ namespace ReporteExistenciaPrecio.Controladores
                 Report.Articulo = Convert.ToString(fila["ARTICULO"]);
                 Report.UnidadesVendidas = Convert.ToDecimal(fila["UNIDADES"]);
                 Report.VentaTotal = Convert.ToDecimal(fila["VENTA_TOTAL"]);
-                Report.UltimoCostoUnitario = Convert.ToDecimal(fila["ULTIMO_COSTO"]);
+                Report.UltimoCostoUnitario = fila["ULTIMO_COSTO"] == DBNull.Value ? 0 : Convert.ToDecimal(fila["ULTIMO_COSTO"]);
                 dsReporte.Add(Report);
             }
 

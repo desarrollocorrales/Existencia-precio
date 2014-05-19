@@ -42,8 +42,7 @@ namespace ReporteExistenciaPrecio.Reporte_Vendedores
 
         private void Consultar()
         {
-            /*pbLoading.Visible = true;
-            lblLoading.Visible = true;*/
+            panelLoading.Visible= true;
             btnConsultar.Enabled = false;
             hiloConsulta.RunWorkerAsync();
         }
@@ -61,8 +60,7 @@ namespace ReporteExistenciaPrecio.Reporte_Vendedores
             gvReporteVendedores.BestFitColumns();
             tabControlVendores.SelectedIndex = 1;
 
-            /*pbLoading.Visible = false;
-            lblLoading.Visible = false;*/
+            panelLoading.Visible = false;
             btnConsultar.Enabled = true;
         }
 
@@ -89,7 +87,6 @@ namespace ReporteExistenciaPrecio.Reporte_Vendedores
         }
         private void Imprimir()
         {
-            //MessageBox.Show("Imprimir");
             PrintableComponentLink link = new PrintableComponentLink(new PrintingSystem());
 
             PageHeaderArea headerArea;

@@ -127,9 +127,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLoading.Image = global::ReporteExistenciaPrecio.Properties.Resources.loading;
-            this.pbLoading.Location = new System.Drawing.Point(152, 6);
+            this.pbLoading.Location = new System.Drawing.Point(294, 165);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(473, 332);
+            this.pbLoading.Size = new System.Drawing.Size(196, 149);
             this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLoading.TabIndex = 2;
             this.pbLoading.TabStop = false;
@@ -168,9 +168,9 @@
             this.lblLoading.BackColor = System.Drawing.Color.Black;
             this.lblLoading.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoading.ForeColor = System.Drawing.Color.White;
-            this.lblLoading.Location = new System.Drawing.Point(144, 229);
+            this.lblLoading.Location = new System.Drawing.Point(286, 205);
             this.lblLoading.Name = "lblLoading";
-            this.lblLoading.Size = new System.Drawing.Size(473, 34);
+            this.lblLoading.Size = new System.Drawing.Size(196, 33);
             this.lblLoading.TabIndex = 3;
             this.lblLoading.Text = "Cargando datos...";
             this.lblLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -375,7 +375,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(776, 480);
+            this.tabPage2.Size = new System.Drawing.Size(776, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Resultados";
             this.tabPage2.UseVisualStyleBackColor = true;
